@@ -10,11 +10,11 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # Copy dependencies file first and install them
-COPY requirements.txt .
+COPY PokeTrade/requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Now copy the rest of the project
-COPY . .
+COPY PokeTrade .
 
 # Tell Docker to run Daphne as the startup command
 CMD ["daphne", "PokeTrade.asgi:application"]
